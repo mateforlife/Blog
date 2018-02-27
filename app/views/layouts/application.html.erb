@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blog</title>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet"> 
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+    <header>
+      <nav class="be-red white large-padding">
+        <ul class="no-list row center-xs">
+          <li class="col-md">
+            <h1 class="no-margin" id="logo">dinoBlog</h1>
+          </li>
+          <li class="col-md">
+            <%= link_to "Inicio", articles_path %>
+          </li>
+          <li class="col-md">
+            Diseño      
+          </li>
+          <li class="col-md">
+            Programación
+          </li>
+          <li class="col-md">
+            Tecnología
+          </li>  
+          <li class="col-md">
+          <% if user_signed_in? %>
+            <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete%>
+          <% else %>
+            <%= link_to "Iniciar sesión", new_user_session_path, method: :get%>  
+          <% end %>  
+          </li>  
+        </ul>
+      </nav>
+    </header>
+  </body>
+
+  <body>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%= yield %>
+  </body>
+  
+</html>
