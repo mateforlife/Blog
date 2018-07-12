@@ -1,9 +1,10 @@
 class Article < ApplicationRecord
   belongs_to :user
   has_many :comments
-  has_many :categories
-  validates :title, presence: true, uniqueness: true, length: {minimum:3, maximum:50}
-  validates :body, presence: true, length: {minimum:20, maximum:500}
+  has_many :has_categories
+  has_many :categories, through: :has_categories
+  validates :title, presence: true, uniqueness: true, length: {minimum: 3, maximum: 50}
+  validates :body, presence: true, length: {minimum: 20, maximum: 500}
   before_create :set_visits_count
   after_create :save_categories
 
@@ -11,22 +12,23 @@ class Article < ApplicationRecord
   validates_attachment_content_type :cover, content_type: /\Aimage\/.*\Z/
 
   def categories=(value)
-      @categories = value
-  end  
+    @categories = value
+  end
 
   def update_visits_count
     self.save if self.visits_count.nil?
     self.update(visits_count: self.visits_count + 1)
-  end   
+  end
 
   private
-    def save_categories 
-      #raise @categories.to_yaml
-      #@categories.each do |category_id|
-       # HasCategory.create(category_id: category_id, article_id: self.id)
-      #end   
-    end  
-    def set_visits_count 
-      self.visits_count = 0
-    end  
+
+  def save_categories
+    @categories.each do |category|
+      HasCategory.create(article_id: self.id, category_id: category)
+    end
+  end
+
+  def set_visits_count
+    self.visits_count = 0
+  end
 end

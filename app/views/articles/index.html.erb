@@ -1,5 +1,6 @@
-<h1>Ariculos</h1>
+<h1>Artículos</h1>
 
+<%= button_to 'Nuevo Artículo', new_article_path, method: :get %>
 <% @articles.each do |article| %>
   <h2><%= link_to article.title, article, method: :get %></h2>
   <h4><%= article.body %> - <%= link_to "Eliminar", article, class:"red", method: :delete %></h4>    

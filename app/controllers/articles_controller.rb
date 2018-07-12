@@ -5,7 +5,7 @@ class ArticlesController < ApplicationController
   def index
     @articles = Article.all
   end
-  
+
   def show
     @article.update_visits_count
     @comment = Comment.new
@@ -18,46 +18,45 @@ class ArticlesController < ApplicationController
 
   #POST /articles
   def create
-    #@article = Article.new(title: params[:article][:title], body: params[:article][:body])
-    @article = current_user.articles.new(article_params) 
-    @article.categories = params[:categories]                    
+    @article = current_user.articles.new(article_params)
+    @article.categories = params[:categories]
     if @article.save
-      redirect_to @article  
+      redirect_to @article
     else
       render :new
-    end           
+    end
   end
 
   def edit
-  end  
+  end
 
   #delete "/articles/:id"
   def destroy
     @article.destroy
     redirect_to articles_path
-  end  
+  end
 
   #PUT /articles/:id
   def update
     @article.update(article_params)
     if @article.save
-      redirect_to @article  
+      redirect_to @article
     else
       render :edit
-    end 
-  end  
+    end
+  end
 
-  def set_article 
+  def set_article
     @article = Article.find(params[:id])
-  end  
+  end
 
   private
-    def article_params
-      params.require(:article).permit(:title,:body,:cover,:categories)
-    end
 
-    def validate_user 
-      redirect_to new_user_session_path, notice: "Debes iniciar sesión para continuar"
-    end
-    
+  def article_params
+    params.require(:article).permit(:title, :body, :cover, :categories)
+  end
+
+  def validate_user
+    redirect_to new_user_session_path, notice: 'Debes iniciar sesión para continuar'
+  end
 end
