@@ -35,7 +35,8 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
+#WIll paginate gem
+gem 'will_paginate'
 #AASM to states machine
 gem 'aasm'
 

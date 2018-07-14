@@ -1,16 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-
 <h1><%= @category.name %></h1>
 <h2>Artículos</h2>
 
-
-<% @category.articles.each do |article| %>
+<% @category.articles.published.each do |article| %>
   <h3><%= link_to article.title, article %></h3>
   <div>
     <%= article.body %> - <%= link_to "Eliminar", article, class:"red", method: :delete %>
   </div>
 <% end %>
 
-</br>
-<%= link_to 'Atrás', categories_path %>

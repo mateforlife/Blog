@@ -1,11 +1,11 @@
 class ArticlesController < ApplicationController
-  before_action :authenticate_user!, except: [:show,:index]
-  before_action :set_article, except: [:index,:new,:create]
+  before_action :authenticate_user!, except: %i[show index]
+  before_action :set_article, except: %i[index new create]
   before_action :authenticate_editor!, only: %i[new create update]
-  before_action :authenticate_admin!, only: %i[destroy]
+  before_action :authenticate_admin!, only: %i[destroy publish]
 
   def index
-    @articles = Article.all
+    @articles = Article.paginate(page: params[:page], per_page: 5).published.latest
   end
 
   def show
@@ -18,7 +18,6 @@ class ArticlesController < ApplicationController
     @categories = Category.all
   end
 
-  #POST /articles
   def create
     @article = current_user.articles.new(article_params)
     @article.categories = params[:categories]
@@ -29,16 +28,11 @@ class ArticlesController < ApplicationController
     end
   end
 
-  def edit
-  end
-
-  #delete "/articles/:id"
   def destroy
     @article.destroy
     redirect_to articles_path
   end
 
-  #PUT /articles/:id
   def update
     @article.update(article_params)
     if @article.save
@@ -49,11 +43,16 @@ class ArticlesController < ApplicationController
     end
   end
 
-  def set_article
-    @article = Article.find(params[:id])
+  def publish
+    @article.publish!
+    redirect_to @article, notice: 'Articulo publicado exitosamente!'
   end
 
   private
+
+  def set_article
+    @article = Article.find(params[:id])
+  end
 
   def article_params
     params.require(:article).permit(:title, :body, :cover, :categories)
