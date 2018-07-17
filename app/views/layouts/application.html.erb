@@ -19,9 +19,18 @@
           </li>
           <% @categories.each do |category| %>
           <li class="col-md">
-            <%= link_to category.name,category %>      
+            <%= link_to category.name, category %>      
           </li>
           <% end %>
+
+          <% unless current_user.nil? %>
+            <% if current_user.is_admin? || current_user.is_editor? %>
+              <li class="col-md">
+                <%= link_to "Dashboard", '/dashboard', method: :get%>
+              </li>  
+            <% end %>  
+          <% end %>
+          
           <li class="col-md">
           <% if user_signed_in? %>
             <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete%>

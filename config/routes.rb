@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :comments, only: [:create,:destroy,:update]
   end
 
-  root 'welcome#index'
+  root 'articles#index'
   get '/dashboard', to: 'welcome#dashboard'
   put '/articles/:id/publish', to: 'articles#publish'
 
