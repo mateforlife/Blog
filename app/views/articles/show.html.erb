@@ -1,31 +1,23 @@
-  <h1><%= @article.title %></h1>
-  <% unless @article.user.nil? %>
-  <p>
-    Escrito por: <%= @article.user.email %>
-  </p>
-   <% end %>
-  <div class="field">
+<article class="bottom-space">
+  <div class="field text-center">
     <%= image_tag @article.cover.url(:thumb) %>
   </div>
-
-  <p>
-    Visitas: <%= @article.visits_count %>
-  </p>
-  <div>
-    <p><%= @article.body %></p>
+  <div class="row center-xs">
+    <div class="col-xs-12 light-border col-md-7">
+      <h1 class="be-big blue"><%= @article.title %></h1>
+      <p class="text-right be-small">
+        <%= link_to "Atrás", articles_path, class:'underline'%> -
+        <span class="red"><%= @article.visits_count%> Visita(s) </span> -
+        <% unless @article.user.nil? %>
+          Escrito por <%= @article.user.email %>
+        <% end %>
+      </p>
+      <div class="text-justify">
+        <%= @article.body %>
+      </end>
+      <div>
+        <%= render "articles/comments" %>
+      </div>
+    </div>
   </div>
-
-  <div class="top-space">
-    <%= link_to "Editar", edit_article_path(@article), class:"red" %>
-  </div>
-  <div class="field">
-    <h3>Comentarios</h3>
-    <%= render "comments/form" %>
-    <ul class="no-list">
-      <% @article.comments.each do |comment| %> 
-      <li>
-        <%= "#{comment.user.email}: " %><%= comment.body %>
-      </li>
-      <% end %>
-    </ul>
-  </div>
+</article>

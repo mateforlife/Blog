@@ -1,0 +1,14 @@
+<div class="col-md-4 top-space">
+  <div class="box relative article-height">
+    <div class="absolute article-height background-cover" style="background:url(<%= article.cover.url %>);top:0px;left:0px;width:100%;">
+      <div class="relative white text-center">
+        <div class="absolute article-height background-cover" style="background:rgba(0,0,0,0.5);top:0px;left:0px;width:100%;">
+          <h2><%= link_to article.title, article, method: :get %></h2>
+          <p>
+            <%= truncate(article.body, lenght: 20) %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
