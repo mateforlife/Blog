@@ -48,6 +48,54 @@ html,body{
     margin-top: 1em;
 }
 
+.relative{
+    position: relative;
+}
+
+.absolut{
+    position: absolute;
+}
+
+.article-height{
+    height: 150px;
+}
+
+.background-cover{
+    background-position: center;
+    background-size: cover;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.text-right{
+    text-align: right;
+}
+
+.be-small{
+    font-size: 12px;
+}
+
+.underline{
+    text-decoration: underline;
+}
+
+.text-justify{
+    text-align: justify;
+}
+
+.grey{
+    color: #616161;
+}
+
+.be-big{
+    font-size: 2em;
+}
+
+.bottom-space{
+    margin-bottom: 2em;
+}
 .form-control{
     border: none;
     border-bottom: 1px solid;

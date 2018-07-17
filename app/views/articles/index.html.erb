@@ -1,9 +1,11 @@
-<h1>Artículos</h1>
-
-<%= button_to 'Nuevo Artículo', new_article_path, method: :get %>
-<% @articles.each do |article| %>
-  <h2><%= link_to article.title, article, method: :get %></h2>
-  <h4><%= article.body %></h4>    
-<% end %>
-<%= will_paginate @articles %>
+<div class="container" style="margin:0 auto;">
+  <h1>Artículos</h1>
+  <div class="row">
+      <%= render @articles %>
+  </div>
+  
+  <div class="top-space text-center">
+    <%= will_paginate @articles %>
+  </div>
+</div > 
 
