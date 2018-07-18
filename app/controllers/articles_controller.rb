@@ -36,6 +36,7 @@ class ArticlesController < ApplicationController
   def update
     @article.update(article_params)
     if @article.save
+      @article.unpublish!
       @article.categories = params[:categories]
       redirect_to @article
     else
