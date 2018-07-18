@@ -21,11 +21,19 @@
                         <%= link_to "Artículos", articles_path %>
                     </li>
 
-                    <% @categories.each do |category| %>
-                        <li class="col-md">
-                            <%= link_to category.name, category %>      
-                        </li>
-                    <% end %>
+                    <div class="col-md dropdown">
+                        <a class="btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Categorías
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <% @categories.each do |category| %>
+                                <li class="col-md dropdown-item">
+                                    <%= link_to category.name, category %>      
+                                </li>
+                            <% end %>
+                        </div>
+                    </div>
+
 
                     <% unless current_user.nil? %>
                         <% if current_user.is_admin? || current_user.is_editor? %>
