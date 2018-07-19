@@ -122,17 +122,17 @@ a,a:visited{
   /* Style the links inside the navigation bar */
   .topnav #a {
     text-align: center;
-    padding: 17px 50px;
+    padding: 12px 50px;
   }
 
   .topnav #a:hover {
-    border-bottom: 3px solid red;
+    border-bottom: 5px solid red;
     background-color: #3e4444;
     color: #86af49;
   }
 
   .topnav #a.active {
-    border-bottom: 3px solid red;
+    border-bottom: 5px solid red;
     background-color: #3e4444;
     color: #86af49;
   }

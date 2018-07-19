@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <style>
-      /* Email styles need to be inline */
-    </style>
-  </head>
-  <body>
-    <h1><%= @article.title %></h1>
-    <p><%= truncate(@article.body, lenght: 30) %></p>
-    <p><%= link_to "Leer más", article_url(@article) %></a></p>
-  </body>
-  <body>
-    <%= yield %>
-  </body>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <style>
+          /* Email styles need to be inline */
+        </style>
+    </head>
+    <body>
+        <h1><%= @article.title %></h1>
+        <p><%= truncate(@article.body, lenght: 30) %></p>
+        <p><%= link_to "Leer más", article_url(@article) %></a></p>
+    </body>
+    <body>
+        <%= yield %>
+    </body>
 </html>
