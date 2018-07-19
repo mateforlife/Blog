@@ -18,9 +18,7 @@ html,body{
     background-color: #E74C3C;
 }
 
-#logo{
-    font-size: 1.2em;
-}
+
 
 .white{
     color: #ECF0F1;
@@ -115,3 +113,26 @@ a,a:visited{
     color: inherit;
     text-decoration: none;
 }
+
+ /* Add a black background color to the top navigation */
+ .topnav {
+    background-color: #484f4f;
+  }
+  
+  /* Style the links inside the navigation bar */
+  .topnav #a {
+    text-align: center;
+    padding: 17px 50px;
+  }
+
+  .topnav #a:hover {
+    border-bottom: 3px solid red;
+    background-color: #3e4444;
+    color: #86af49;
+  }
+
+  .topnav #a.active {
+    border-bottom: 3px solid red;
+    background-color: #3e4444;
+    color: #86af49;
+  }
