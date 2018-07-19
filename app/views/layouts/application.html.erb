@@ -9,43 +9,46 @@
     </head>
 
     <body>
-
-<!--Old-->
         <header>
-            <nav class="be-red white large-padding">
+            <nav class="topnav large-padding">
                 <ul class="no-list row center-xs">
                     <li class="col-md">
-                        <h1 class="no-margin" id="logo"><%= link_to "dinoBlog", root_path %></h1>
+                        <%= link_to "dinoBlog", root_path, id:'a' %>
                     </li>
                     <li class="col-md">
-                        <%= link_to "Artículos", articles_path %>
+                        <%= link_to "Artículos", articles_path, id:'a' %>
                     </li>
-
-                    <% @categories.each do |category| %>
-                        <li class="col-md">
-                            <%= link_to category.name, category %>      
-                        </li>
-                    <% end %>
-
+                    <div class="col-md dropdown">
+                        <a class="col-md dropdown-toggle" href="#" id="a" data-toggle="dropdown">
+                            Categorías
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <% @categories.each do |category| %>
+                                <li class="col-md dropdown-item">
+                                    <%= link_to category.name, category %>      
+                                </li>
+                            <% end %>
+                            <div class="dropdown-divider"></div>
+                            <li class="col-md dropdown-item"><%= link_to "Administrar", categories_path %></li>
+                        </div>
+                    </div>
                     <% unless current_user.nil? %>
                         <% if current_user.is_admin? || current_user.is_editor? %>
                             <li class="col-md">
-                                <%= link_to "Dashboard", '/dashboard', method: :get%>
+                                <%= link_to "Dashboard", '/dashboard', id:'a', method: :get%>
                             </li>  
-                        <% end %>  
+                        <% end %>
                     <% end %>
-
                     <li class="col-md">
                         <% if user_signed_in? %>
-                            <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete%>
+                            <%= link_to "Cerrar sesión", destroy_user_session_path, id:'a',method: :delete%>
                         <% else %>
-                            <%= link_to "Iniciar sesión", new_user_session_path, method: :get%>  
+                            <%= link_to "Iniciar sesión", new_user_session_path, id:'a', method: :get%>  
                         <% end %>  
                     </li>  
                 </ul>
             </nav>
         </header>
-
     </body>
 
     <body>
