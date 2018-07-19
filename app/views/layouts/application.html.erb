@@ -28,15 +28,26 @@
                                     <%= link_to category.name, category %>      
                                 </li>
                             <% end %>
-                            <div class="dropdown-divider"></div>
-                            <li class="col-md dropdown-item"><%= link_to "Administrar", categories_path %></li>
                         </div>
                     </div>
                     <% unless current_user.nil? %>
                         <% if current_user.is_admin? || current_user.is_editor? %>
-                            <li class="col-md">
-                                <%= link_to "Dashboard", '/dashboard', id:'a', method: :get%>
-                            </li>  
+                            <div class="col-md dropdown">
+                                <a class="col-md dropdown-toggle" href="#" id="a" data-toggle="dropdown">
+                                    Administrar
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <li class="col-md dropdown-item">
+                                        <%= link_to "Articulos", '/dashboard', method: :get%>
+                                    </li>
+                                    <li class="col-md dropdown-item">
+                                        <%= link_to "Categorías", categories_path %>
+                                    </li>
+                                    <li class="col-md dropdown-item">
+                                        <%= link_to "Usuarios", '/users', method: :get%>
+                                    </li>
+                                </div>
+                            </div>
                         <% end %>
                     <% end %>
                     <li class="col-md">
@@ -56,5 +67,4 @@
         <p class="alert"><%= alert %></p>
         <%= yield %>
     </body>
-
 </html>
