@@ -18,8 +18,6 @@ html,body{
     background-color: #E74C3C;
 }
 
-
-
 .white{
     color: #ECF0F1;
 }
@@ -114,25 +112,41 @@ a,a:visited{
     text-decoration: none;
 }
 
- /* Add a black background color to the top navigation */
- .topnav {
-    background-color: #484f4f;
-  }
-  
-  /* Style the links inside the navigation bar */
-  .topnav #a {
-    text-align: center;
-    padding: 12px 50px;
-  }
+/* Add a black background color to the top navigation */
+.topnav {
+background-color: #484f4f;
+}
 
-  .topnav #a:hover {
+#button-new {
+background-color: #484f4f;
+padding: 12px 12px;
+}
+
+#button-new:hover {
     border-bottom: 5px solid red;
     background-color: #3e4444;
     color: #86af49;
-  }
-
-  .topnav #a.active {
+}
+#button-new:active {
     border-bottom: 5px solid red;
     background-color: #3e4444;
     color: #86af49;
-  }
+}
+
+/* Style the links inside the navigation bar */
+.topnav #a {
+text-align: center;
+padding: 12px 50px;
+}
+
+.topnav #a:hover {
+border-bottom: 5px solid red;
+background-color: #3e4444;
+color: #86af49;
+}
+
+.topnav #a.active {
+border-bottom: 5px solid red;
+background-color: #3e4444;
+color: #86af49;
+}

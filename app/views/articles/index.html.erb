@@ -1,5 +1,8 @@
 <div class="container" style="margin:0 auto;">
   <h1>Artículos</h1>
+
+    <%= link_to 'Nuevo Artículo', new_article_path, id:'button-new' %>
+
   <div class="row">
       <%= render @articles %>
   </div>
