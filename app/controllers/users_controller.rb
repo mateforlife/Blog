@@ -19,6 +19,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user_types = User.permission_levels.keys
+  end
+
   private
 
   def set_user

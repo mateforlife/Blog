@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :authenticate_user!, except: %i[show index]
   before_action :set_article, except: %i[index new create]
-  before_action :authenticate_editor!, only: %i[new create update]
+  before_action :authenticate_editor!, only: %i[update]
   before_action :authenticate_admin!, only: %i[destroy publish]
 
   def index
