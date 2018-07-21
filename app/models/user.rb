@@ -23,5 +23,4 @@ class User < ApplicationRecord
   def admin?
     self.permission_level == 'admin'
   end
-
 end
