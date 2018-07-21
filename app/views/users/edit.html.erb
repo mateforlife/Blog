@@ -11,8 +11,16 @@
     <div class="field">
         <%= f.label :email %>
         <%= f.text_field :email %>
-    </div> 
+    </div>
+    <div class="field">
+        <%= f.label :sex %>
+        <%= f.select :sex, @user_sexes %>
+    </div>
 
+    <div class="field">
+        Avatar: <%= f.file_field :avatar %>
+    </div>
+    
     <div class="field">
         <%= f.label :permission_level %>
         <%= f.select :permission_level, @user_types %>

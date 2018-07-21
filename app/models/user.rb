@@ -1,29 +1,27 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+  validates :sex, presence: true
   validates :nickname, presence: true, uniqueness: true, length: { minimum: 3, maximum: 20 }
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :articles
   has_many :comments
-
+  has_attached_file :avatar, styles: {medium: "500x400", thumb: "100x100"}
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
   enum permission_level: %i[normal editor admin]
+  enum sex: %i[male female undefined]
 
-  def is_normal_user?
+  def normal_user?
     self.permission_level == 'normal'
   end
 
-  def is_editor?
+  def editor?
     self.permission_level == 'editor'
   end
 
-  def is_admin?
+  def admin?
     self.permission_level == 'admin'
   end
 
-  def avatar
-    email_address = self.email.downcase
-    hash = Digest::MD5.hexdigest(email_address)
-    image_src = "https://www.gravatar.com/avatar/#{hash}"
-  end
 end
