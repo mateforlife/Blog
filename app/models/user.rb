@@ -6,17 +6,19 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :articles
   has_many :comments
-  include PermissionsConcern
 
-  def user_type
-    case permission_level
-    when 1
-      'Estandar'
-    when 2
-      'Editor'
-    when 3
-      'Administrador'
-    end
+  enum permission_level: %i[normal editor admin]
+
+  def is_normal_user?
+    self.permission_level == 'normal'
+  end
+
+  def is_editor?
+    self.permission_level == 'editor'
+  end
+
+  def is_admin?
+    self.permission_level == 'admin'
   end
 
   def avatar

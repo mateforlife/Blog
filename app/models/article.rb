@@ -44,8 +44,10 @@ class Article < ApplicationRecord
   end
 
   def save_categories
-    @categories.each do |category|
-      HasCategory.create(article_id: self.id, category_id: category)
+    unless @categories.nil?
+      @categories.each do |category|
+        HasCategory.create(article_id: self.id, category_id: category)
+      end
     end
   end
 

@@ -15,7 +15,7 @@
 
     <div class="field">
         <%= f.label :permission_level %>
-        <%= f.select :permission_level, options_for_select([['Administrador', 3], ['Editor', 2], ['Estandar', 1]]) %>
+        <%= f.select :permission_level, @user_types %>
     </div>
 
     <div class="field">
