@@ -21,13 +21,6 @@ class User < ApplicationRecord
     self.permission_level == 'admin'
   end
 
-  def user_types
-    array = [['Estandar', 1], ['Editor', 2], ['Administrador', 3]]
-    array.delete([user_type, permission_level])
-    array.unshift([user_type, permission_level])
-    debugger
-  end
-
   def avatar
     email_address = self.email.downcase
     hash = Digest::MD5.hexdigest(email_address)
