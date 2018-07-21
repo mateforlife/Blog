@@ -31,7 +31,7 @@
                         </div>
                     </div>
                     <% unless current_user.nil? %>
-                        <% if current_user.is_admin? || current_user.is_editor? %>
+                        <% if current_user.admin? || current_user.editor? %>
                             <div class="col-md dropdown">
                                 <a class="col-md dropdown-toggle" href="#" id="a" data-toggle="dropdown">
                                     Administrar
