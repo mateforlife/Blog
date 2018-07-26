@@ -4,12 +4,12 @@ class Article < ApplicationRecord
   has_many :comments
   has_many :has_categories
   has_many :categories, through: :has_categories
-  validates :title, presence: true, uniqueness: true, length: {minimum: 3, maximum: 50}
-  validates :body, presence: true, length: {minimum: 20, maximum: 2000}
+  validates :title, presence: true, uniqueness: true, length: { minimum: 3, maximum: 50 }
+  validates :body, presence: true, length: { minimum: 20, maximum: 2000 }
   before_create :set_visits_count
   after_create :save_categories
   after_create :send_mail
-  has_attached_file :cover, styles: {medium: "1280x720", thumb: "800x600"}
+  has_attached_file :cover, styles: { medium: '1280x720', thumb: '800x600' }
   validates_attachment_content_type :cover, content_type: /\Aimage\/.*\Z/
 
   scope :published, -> { where(state: 'published') }

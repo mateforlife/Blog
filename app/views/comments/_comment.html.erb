@@ -5,13 +5,13 @@
     <div class="row">
         <div class="col-xs-1 col-md-1">
             <div class="box">
-                <%= image_tag(comment.user.avatar, height: '32', width: '32') %>
+                <%= image_tag(comment.user.avatar, height: '100', width: '100') %>
+                <%= comment.user.nickname %>
             </div>
         </div>
-        <div class="col-xs-11 col-md-10">
-            <div class="box">
-                <%= comment.body %>
-            </div>
+        <div class="col-md margin-left text-left">
+            <%= comment.body %>
         </div>
+
     </div>
 </article>

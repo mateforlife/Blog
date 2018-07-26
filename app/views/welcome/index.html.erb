@@ -1,5 +1,5 @@
 <% if user_signed_in? %>
-  <h1>Bienvenido <%= current_user.email %></h1>  
+  <h3>Bienvenido <%= current_user.nickname %></h3>  
+<% else %>
+  <h2>Bienvenido al Dev Autodidacta, un espacio para programadores y desarrolladores :)</h2>    
 <% end %>
-
-
