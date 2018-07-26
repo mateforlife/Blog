@@ -4,6 +4,8 @@
         <title>Blog</title>
         <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet"> 
         <%= csrf_meta_tags %>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
         <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     </head>
@@ -50,21 +52,27 @@
                             </div>
                         <% end %>
                     <% end %>
-                    <li class="col-md">
-                        <% if user_signed_in? %>
+                    <% if user_signed_in? %>
+                        <li class="col-md">
+                            <%= link_to "Mi Perfil", current_user, id:'a',method: :get%>
+                        </li>   
+                        <li class="col-md">
                             <%= link_to "Cerrar sesión", destroy_user_session_path, id:'a',method: :delete%>
-                        <% else %>
-                            <%= link_to "Iniciar sesión", new_user_session_path, id:'a', method: :get%>  
-                        <% end %>  
-                    </li>  
+                        </li>     
+                    <% else %>
+                        <li class="col-md">
+                            <%= link_to "Iniciar sesión", new_user_session_path, id:'a', method: :get%>
+                        </li>    
+                    <% end %>  
                 </ul>
             </nav>
         </header>
     </body>
 
     <body>
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
+    <div class="container" style="margin:0 auto;">
+
         <%= yield %>
+    </div>    
     </body>
 </html>

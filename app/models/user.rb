@@ -7,7 +7,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :articles
   has_many :comments
-  has_attached_file :avatar, styles: {medium: "500x400", thumb: "100x100"}
+  has_attached_file :avatar, styles: { medium: '500x400', thumb: '100x100' }
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
   enum permission_level: %i[normal editor admin]
   enum sex: %i[male female undefined]

@@ -4,6 +4,10 @@ html,body{
     background-color: #d9ecd0
 }
 
+.no-list{
+    list-style: none;
+  }
+  
 .btn{
     background-color: inherit;
     border: none;
@@ -93,6 +97,7 @@ html,body{
 .bottom-space{
     margin-bottom: 2em;
 }
+
 .form-control{
     border: none;
     border-bottom: 1px solid;
@@ -114,39 +119,113 @@ a,a:visited{
 
 /* Add a black background color to the top navigation */
 .topnav {
-background-color: #484f4f;
+    background-color: #484f4f;
 }
 
 #button-new {
-background-color: #484f4f;
-padding: 12px 12px;
+    color: white;
+    background-color: #484f4f;
+    padding: 12px 12px;
 }
 
 #button-new:hover {
-    border-bottom: 5px solid red;
+    border-bottom: 2px solid red;
     background-color: #3e4444;
     color: #86af49;
 }
+
 #button-new:active {
-    border-bottom: 5px solid red;
+    border-bottom: 2px solid red;
     background-color: #3e4444;
     color: #86af49;
 }
 
 /* Style the links inside the navigation bar */
 .topnav #a {
-text-align: center;
-padding: 12px 50px;
+    color: white;
+    text-align: center;
+    padding: 15px 25px;
 }
 
 .topnav #a:hover {
-border-bottom: 5px solid red;
-background-color: #3e4444;
-color: #86af49;
+    border-bottom: 3px solid red;
+    background-color: #3e4444;
+    color: #86af49;
 }
 
 .topnav #a.active {
-border-bottom: 5px solid red;
-background-color: #3e4444;
-color: #86af49;
+    border-bottom: 3px solid red;
+    background-color: #3e4444;
+    color: #86af49;
+}
+
+.col-xs-12 {
+    -ms-flex-preferred-size: 100%;
+    flex-basis: 100%;
+    max-width: 100%;
+}
+
+.col-md-7 {
+    -ms-flex-preferred-size: 58.333%;
+    flex-basis: 58.333%;
+    max-width: 58.333%;
+}
+
+.row {
+    box-sizing: border-box;
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: flex;
+    -ms-flex: 0 1 auto;
+    -webkit-box-flex: 0;
+    flex: 0 1 auto;
+    -ms-flex-direction: row;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -1rem;
+    margin-left: -1rem;
+}
+
+.center-xs {
+    -ms-flex-pack: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.col-xs-6 {
+    -ms-flex-preferred-size: 50%;
+    flex-basis: 50%;
+    max-width: 50%;
+}
+
+.col-xs-1 {
+  -ms-flex-preferred-size: 8.333%;
+  flex-basis: 8.333%;
+  max-width: 8.333%;
+}
+
+.col-xs-11 {
+    -ms-flex-preferred-size: 91.667%;
+    flex-basis: 91.667%;
+    max-width: 91.667%;
+}
+
+.col-md-1 {
+    -ms-flex-preferred-size: 8.333%;
+    flex-basis: 8.333%;
+    max-width: 8.333%;
+}
+
+.col-md-10 {
+    -ms-flex-preferred-size: 83.333%;
+    flex-basis: 83.333%;
+    max-width: 83.333%;
+}
+
+.margin-left {
+    margin-left: 2em;
 }

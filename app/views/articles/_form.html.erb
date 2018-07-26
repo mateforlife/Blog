@@ -2,7 +2,7 @@
 <%= form_for(@article) do |f| %>
     <% @article.errors.full_messages.each do |message| %>
         <div class="be-red white top-space">
-          * <%= message %>
+        * <%= message %>
         </div>
     <% end %>
     <div class="field">
@@ -23,6 +23,6 @@
         <% end %>
     </div> 
     <div class="field">
-        <%= f.submit "Guardar", class:"btn be-red white" %>
+        <%= f.submit "Guardar", class: 'btn', id: 'button-new' %>
     </div> 
-<% end %> 
+<% end %>  
