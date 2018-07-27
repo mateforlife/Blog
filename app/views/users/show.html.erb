@@ -1,5 +1,5 @@
-<h2><%= current_user.nickname %></h2>
-<%= current_user.email %> - <span class="red"><%= current_user.permission_level %></span> 
+<h2><%= @user.nickname %></h2>
+<%= @user.email %> - <span class="red"><%= @user.permission_level %></span> 
 <div class="field">
-    <%= image_tag current_user.avatar.url(:medium) %>
+    <%= image_tag @user.avatar.url(:medium) %>
 </div>

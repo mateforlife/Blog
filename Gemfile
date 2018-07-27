@@ -41,6 +41,7 @@ gem 'will_paginate'
 #AASM to states machine
 gem 'aasm'
 
+
 gem 'bootstrap', '~> 4.1.1'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -48,7 +49,7 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
-
+  #to mailing
   gem 'letter_opener'
 end
 

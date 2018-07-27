@@ -24,7 +24,7 @@
                         <a class="col-md dropdown-toggle" href="#" id="a" data-toggle="dropdown">
                             Categorías
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <div class="dropdown-menu no-overflow" aria-labelledby="dropdownMenuButton">
                             <% @categories.each do |category| %>
                                 <li class="col-md dropdown-item">
                                     <%= link_to category.name, category %>      
@@ -38,7 +38,7 @@
                                 <a class="col-md dropdown-toggle" href="#" id="a" data-toggle="dropdown">
                                     Administrar
                                 </a>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <div class="dropdown-menu no-overflow" aria-labelledby="dropdownMenuButton">
                                     <li class="col-md dropdown-item">
                                         <%= link_to "Articulos", '/dashboard', method: :get%>
                                     </li>
