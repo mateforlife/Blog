@@ -6,12 +6,11 @@
         <div class="col-xs-1 col-md-1">
             <div class="box">
                 <%= image_tag(comment.user.avatar, height: '100', width: '100') %>
-                <%= comment.user.nickname %>
+                <%= link_to comment.user.nickname, comment.user, class:'underline' %>
             </div>
         </div>
         <div class="col-md margin-left text-left">
             <%= comment.body %>
         </div>
-
     </div>
 </article>

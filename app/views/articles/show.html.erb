@@ -9,7 +9,7 @@
         <%= link_to "Atrás", articles_path, class:'underline'%> -
         <span class="red"><%= @article.visits_count%> Visita(s) </span> -
         <% unless @article.user.nil? %>
-          Escrito por <%= @article.user.nickname %>
+          Escrito por <%= link_to @article.user.nickname, @article.user, class:'underline' %>
         <% end %>
       </p>
       <div class="text-justify">
