@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_action :authenticate_admin!, only: %i[index update edit]
   before_action :set_user, except: %i[index new create]
 
+
   def index
     @users = User.all
   end
@@ -34,7 +35,9 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+
+
   def user_params
-    params.require(:user).permit(:email, :nickname, :password, :permission_level, :avatar, :sex)
+    params.require(:user).permit(:email, :nickname, :password, :permission_level, :avatar, :sex, :about, :state)
   end
 end
