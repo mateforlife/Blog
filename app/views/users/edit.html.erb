@@ -4,29 +4,42 @@
           * <%= message %>
         </div>
     <% end %>
-    <div class="field">
-        <%= f.label :nickname %>
-        <%= f.text_field :nickname, placeholder: "Nickname" %>
-    </div>
-    <div class="field">
-        <%= f.label :email %>
-        <%= f.text_field :email %>
-    </div>
-    <div class="field">
-        <%= f.label :sex %>
-        <%= f.select :sex, @user_sexes %>
-    </div>
 
     <div class="field">
-        Avatar: <%= f.file_field :avatar %>
+        <%= f.label :nickname %>
+        <%= f.text_field :nickname, placeholder: "Nickname", class:"form-control" %>
     </div>
     
     <div class="field">
-        <%= f.label :permission_level %>
-        <%= f.select :permission_level, @user_types %>
+        <%= f.label :email %>
+        <%= f.text_field :email, class:"form-control" %>
+    </div>
+
+    <div class="form-group field">
+        <%= f.label :sex, 'Indicanos tu sexo'%>
+        <%= f.select :sex, @user_sexes, {}, class:"form-control" %>
     </div>
 
     <div class="field">
-        <%= f.submit "Guardar" %>
+        <p>Avatar:</p>
+        <%= image_tag @user.avatar.url(:thumb) %>
+    </div>
+    
+    <div class="field">
+        <%= f.file_field :avatar %>
+    </div>
+
+    <div class="field">
+        <%= f.label :about, 'Acerca de mí' %>
+        <%= f.text_field :about, class:"form-control" %>
+    </div>
+    
+    <div class="form-group field">
+        <%= f.label :permission_level %>
+        <%= f.select :permission_level, @user_types, {}, class: 'form-control' %>
+    </div>
+
+    <div class="field">
+        <%= f.submit "Guardar", class: 'btn', id: 'button-new' %>
     </div>
 <% end %> 

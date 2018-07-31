@@ -13,7 +13,6 @@ class Article < ApplicationRecord
   validates_attachment_content_type :cover, content_type: /\Aimage\/.*\Z/
 
   scope :published, -> { where(state: 'published') }
-  scope :latest, -> { order('created_at DESC') }
 
   def categories=(value)
     @categories = value
