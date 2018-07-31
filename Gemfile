@@ -41,6 +41,7 @@ gem 'will_paginate'
 #AASM to states machine
 gem 'aasm'
 
+gem 'aws-sdk', '~> 2'
 
 gem 'bootstrap', '~> 4.1.1'
 group :development, :test do
