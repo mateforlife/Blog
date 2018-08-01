@@ -41,7 +41,6 @@ gem 'will_paginate'
 #AASM to states machine
 gem 'aasm'
 
-
 gem 'aws-sdk-s3'
 
 gem 'bootstrap', '~> 4.1.1'
