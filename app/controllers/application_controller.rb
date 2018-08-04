@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :set_categories
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :validate_user_state!, if: :devise_controller?
+
 
   protected
 
@@ -18,10 +18,6 @@ class ApplicationController < ActionController::Base
     redirect_to root_path unless user_signed_in? && current_user.admin?
   end
 
-  def validate_user_state!
-    debugger
-    redirect_to destroy_user_session_path unless current_user.nil? && current_user.allowed_to_sign_in?
-  end
 
   private
 
